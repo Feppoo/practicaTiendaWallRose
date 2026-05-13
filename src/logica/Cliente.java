@@ -9,11 +9,10 @@ public class Cliente {
 	private String nombre;
 	private String email;
 	
-	public Cliente(String id, String nombre, String email, List<Orden> ordenes) {
+	public Cliente(String id, String nombre, String email) {
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
-		this.ordenes = ordenes;
 	}
 
 	public String getId() {
