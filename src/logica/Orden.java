@@ -5,17 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Orden {
-	private List<Linea> lineas = new ArrayList<>();
+	private List<Linea> lineas;
 	private Cliente cliente;
 	private static int consecutivo = 0;
 	private int numero;
 	private LocalDate fecha;
 	private Estado estado;
 	
-	public Orden(Cliente cliente, Estado estado, List<Linea> lineas) {
+	public Orden(String idCliente, Estado estado) {
 		numero = ++consecutivo;
 		fecha = LocalDate.now();
 		this.estado = estado;
+		this.lineas = new ArrayList<>();
 	}
 	
 	public Cliente getCliente() {
