@@ -50,4 +50,8 @@ public class Cliente {
 	public boolean delOrden(Orden orden) {
 		return ordenes.remove(orden);
 	}
+	
+	public String aLetras() {
+		return ("Id: " + id  + "/ Nombre: " + nombre + "/ e-mail: " + email);
+	}
 }

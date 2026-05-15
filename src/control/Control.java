@@ -13,11 +13,16 @@ import logica.Unidad;
 import logica.Orden;
 
 public class Control {
+	private static Control instance = new Control();
 	private Map<String,Cliente> listaClientes = new HashMap<>();
 	private Map<Integer,Producto> listaProductos = new HashMap<>();
 	private Map<Integer,Orden> listaOrdenes = new HashMap<>();
 	
-	public Control() {
+	private Control() {
+	}
+	
+	public static Control getInstance() {
+		return instance;
 	}
 	
 	public List<Cliente> getListaClientes() {
@@ -133,4 +138,5 @@ public class Control {
 	public void borrarOrden(int numOrden) {
 		listaOrdenes.remove(numOrden);
 	}
+
 }
