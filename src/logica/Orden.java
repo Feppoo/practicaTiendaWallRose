@@ -55,7 +55,11 @@ public class Orden {
 		return lineas.add(linea);
 	}
 	
-	public boolean delLinea(Linea linea) {
-		return lineas.remove(linea);
+	public boolean delLinea(int numLinea) {
+		if (numLinea > lineas.size()) {
+			return false;
+		}
+		lineas.remove(numLinea);
+		return true;
 	}
 }

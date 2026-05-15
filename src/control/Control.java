@@ -100,7 +100,37 @@ public class Control {
 		return nueva.getNumero();
 	}
 	
+	public Orden getOrden(int numOrden) {
+		return listaOrdenes.get(numOrden);
+	}
 	
+	public List<Linea> getLineasDeOrden(int numOrden) {
+		return new ArrayList<Linea>(listaOrdenes.get(numOrden).getLineas());
+	}
 	
+	public void setEstadoOrden(int numOrden, Estado estado) {
+		listaOrdenes.get(numOrden).setEstado(estado);
+	}
 	
+	public void agregarLineaAOrden(int numOrden, int codProd, float cantidad) {
+		Orden orden = listaOrdenes.get(numOrden);
+		Producto producto = listaProductos.get(codProd);
+		orden.addLinea(new Linea(producto,cantidad));
+	}
+	
+	public void actualizarLinea(int numOrden, int numLinea, int codProd, float cantidad) {
+		Orden orden = listaOrdenes.get(numOrden);
+		Producto producto = listaProductos.get(codProd);
+		orden.delLinea(numLinea);
+		orden.addLinea(new Linea(producto,cantidad));
+	}
+	
+	public void borrarLinea(int numOrden, int numLinea) {
+		Orden orden = listaOrdenes.get(numOrden);
+		orden.delLinea(numLinea);
+	}
+	
+	public void borrarOrden(int numOrden) {
+		listaOrdenes.remove(numOrden);
+	}
 }
